@@ -36,11 +36,11 @@ export function onSnake(position, { ignoreHead = false } = {}) {
   });
 }
 
-export function getSnakeHead() {
+export function snakeIntersection() {
   return onSnake([0], { ignoreHead: true });
 }
 
-export function snakeIntersection() {
+export function getSnakeHead() {
   return onSnake(snakeBody[0]);
 }
 

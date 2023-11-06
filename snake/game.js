@@ -47,9 +47,3 @@ function checkDeath () {
     gameOver = outSideGR(getSnakeHed) || snakeIntersection()
 }
 
-export function outSideGrid (position) {
-    return (
-        position.x < 1 || position.x > GRID_SIZE ||
-        position.Y < 1 || position.Y > GRID_SIZE
-    )
-}
