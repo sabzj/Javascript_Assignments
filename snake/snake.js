@@ -21,7 +21,7 @@ export function draw(gameboard) {
     snakeElement.style.gridRowStart = segment.y;
     snakeElement.style.gridColumnStart = segment.x;
     snakeElement.classList.add("snake");
-    gameboard.appendchild(snakeElement);
+    gameboard.appendChild(snakeElement);
   });
 }
 
@@ -31,17 +31,19 @@ export function expandSnake(amount) {
 
 export function onSnake(position, { ignoreHead = false } = {}) {
   return snakeBody.some((segment, index) => {
-    if (ignoreHead && index === 0) return false;
+    if (ignoreHead && index === 0) {
+      return false;
+    }
     return equalPositions(segment, position);
   });
 }
 
 export function snakeIntersection() {
-  return onSnake([0], { ignoreHead: true });
+  return onSnake(snakeBody[0], { ignoreHead: true });
 }
 
 export function getSnakeHead() {
-  return onSnake(snakeBody[0]);
+  return snakeBody[0];
 }
 
 function equalPositions(pos1, pos2) {
